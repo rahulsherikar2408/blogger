@@ -1,7 +1,7 @@
-import express from "express";
+import Router from "express";
 import User from "../models/user.js";
 
-const router = express.Router();
+const router = Router();
 
 router.get('/signin', (req, res) => {
     return res.render('signin');

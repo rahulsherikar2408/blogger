@@ -13,7 +13,6 @@ const userSchema = new Schema({
     },
     salt: {
         type: String,
-        required: true,
     },
     password: {
         type: String,
@@ -30,7 +29,7 @@ const userSchema = new Schema({
     },
 }, {timestamps: true});
 
-userSchema.pre("save", function(next){
+userSchema.pre("save", function (next) {
     const user = this;
     if(!user.isModified('password')){
         return ;
@@ -41,9 +40,8 @@ userSchema.pre("save", function(next){
     this.salt = salt;
     this.password = hashedPassword;
 
-    next();
-})
+});
 
 const User = model('user', userSchema);
 
-export default {User};
+export default User;
