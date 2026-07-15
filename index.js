@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import cookieParser from "cookie-parser";
 
 import userRoute from "./routes/user.js";
+import blogRoute from "./routes/blog.js";
 import { checkForAuthenticationCookie } from './middlewares/authentication.js';
 
 const app = express();
@@ -31,5 +32,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/user', userRoute);
+app.use('/blog', blogRoute);
 
 app.listen(port, () => console.log(`Server started at PORT: ${port}`));
