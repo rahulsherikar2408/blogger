@@ -24,6 +24,33 @@
         <%= blog.createdBy.fullName %>
     </div>
 
+    <hr class="container border border-primary border-1 opacity-75">
+
+    <div class="container mt-3">
+        <h1>Comments (<%= comments.length %>)</h1>
+        <% if (locals.user) { %>
+            <form action="/blog/comment/<%= blog._id %>" method="post">
+                <div class="mb-3" style="display: flex;">
+                    <input 
+                        type="text"
+                        name="content"
+                        class="form-control"
+                        placeholder="Enter your comment"/>
+                    <button class="btn btn-sm btn-primary" type="submit" style="width: 70px; margin-left: 10px;">Add</button>
+                </div>
+            </form>
+        <% } %>
+        <div class="mt-3">
+            <% comments.forEach(comment => { %>
+                <div>
+                    <img src="<%= comment.createdBy.profileImage %>" alt="Profile Img" width="50px">
+                    <%= comment.createdBy.fullName %>
+                    <pre><%= comment.content %></pre>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
     <%- include('./partials/scripts') %>
 </body>
 </html>
