@@ -3,18 +3,22 @@ import User from "../models/user.js";
 
 const router = Router();
 
+// View Signin Page Route
 router.get('/signin', (req, res) => {
     return res.render('signin');
 })
 
+// View Signup Page Route
 router.get('/signup', (req, res) => {
     return res.render('signup');
 })
 
+// Logout Route
 router.get('/logout', (req, res) => {
     res.clearCookie("token").redirect('/');
 })
 
+// User Login Route
 router.post('/signin', async (req,res) => {
     const {email, password} = req.body;
     try {
@@ -29,6 +33,7 @@ router.post('/signin', async (req,res) => {
     
 })
 
+// User Signup Route
 router.post('/signup', async(req, res) => {
     const {fullName, email, password} = req.body;
     await User.create({
