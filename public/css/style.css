@@ -1,0 +1,163 @@
+body{
+    padding-top: 70px;
+}
+
+/* ---------------- BLOG CARD ---------------- */
+.blog-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.blog-image {
+    height: 150px;
+    object-fit: cover;
+}
+
+.blog-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-body {
+    min-height: 130px;
+}
+
+/* ---------------- BLOG PAGE ---------------- */
+
+.blog-container{
+    max-width:900px;
+}
+
+.blog-cover{
+    max-height:550px;
+    object-fit:cover;
+}
+
+.blog-content{
+    white-space:pre-line;
+    word-break:break-word;
+    overflow-wrap: break-word;
+    font-size:18px;
+    line-height:1.9;
+    color:#444;
+}
+
+/* ---------------- AUTHOR ---------------- */
+
+.card{
+    border-radius:16px;
+}
+
+/* ---------------- COMMENTS ---------------- */
+
+.comment-card{
+    transition:.25s;
+}
+
+.comment-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 .7rem 1.5rem rgba(0,0,0,.08)!important;
+}
+
+.comment-text{
+    font-size:16px;
+    line-height:1.7;
+    color:#444;
+}
+
+textarea.form-control{
+    resize:none;
+}
+
+textarea.form-control:focus{
+    box-shadow:none;
+    border-color:#0d6efd;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+    .blog-content{
+        font-size:16px;
+    }
+    .display-4{
+        font-size:2rem;
+    }
+}
+
+/* ---------- Add Blog Page ---------- */
+
+.preview-image{
+    width:100%;
+    max-height:350px;
+    object-fit:cover;
+    border-radius:12px;
+    transition:.3s;
+}
+
+textarea{
+    resize:vertical;
+}
+
+.card{
+    border-radius:18px;
+}
+
+.form-control{
+    border-radius:10px;
+}
+
+.form-control:focus{
+    box-shadow:none;
+}
+
+.btn{
+    border-radius:10px;
+}
+
+@media(max-width:768px){
+    .preview-image{
+        max-height:220px;
+    }
+
+}
+
+/* ---------- Authentication Pages ---------- */
+
+.auth-card{
+    border-radius:18px;
+}
+
+.form-control{
+    border-radius:10px;
+}
+
+.form-control:focus{
+    box-shadow:none;
+    border-color:#0d6efd;
+}
+
+.input-group .btn{
+    border-radius:0 10px 10px 0;
+}
+
+.card{
+    border-radius:18px;
+}
+
+.btn-lg{
+    font-weight:600;
+}
+
+@media(max-width:768px){
+    .card-body{
+        padding:2rem;
+    }
+}

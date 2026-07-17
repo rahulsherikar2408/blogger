@@ -1,5 +1,5 @@
 <nav
-  class="navbar navbar-expand-lg bg-body-tertiary bg-dark"
+  class="navbar navbar-expand-lg bg-body-tertiary bg-dark fixed-top shadow-sm"
   data-bs-theme="dark"
 >
   <div class="container-fluid">
@@ -22,7 +22,7 @@
         </li>
         <% if (locals.user) { %>
           <li class="nav-item">
-            <a class="nav-link" href="/blog/my-blogs/<%= user.fullName %>">My Blogs</a>
+            <a class="nav-link" href="/blog/my-blogs/<%= user.userName %>">My Blogs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/blog/add-new">Add Blog</a>

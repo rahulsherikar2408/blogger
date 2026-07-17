@@ -1,42 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <%- include('./partials/head') %>
-    <title>Add Blog</title>
-  </head>
-  <body>
+
+    <title>Create Blog</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
     <%- include('./partials/nav') %>
-    <div class="container mt-3">
-      <form action="/blog" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="title" class="form-label">Cover Image</label>
-          <input
-            type="file"
-            class="form-control"
-            id="coverImage"
-            name="coverImage"
-            aria-describedby="coverImage"
-          />
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow border-0">
+                    <div class="card-body p-4">
+                        <h2 class="fw-bold mb-1">
+                            Create New Blog
+                        </h2>
+                        <p class="text-muted mb-4">
+                            Share your thoughts with the world.
+                        </p>
+                        <form action="/blog" method="POST" enctype="multipart/form-data">
+
+                            <!-- Cover Image -->
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">
+                                    Upload Cover Image
+                                </label>
+                                <input
+                                    type="file"
+                                    class="form-control"
+                                    id="coverImage"
+                                    name="coverImage"
+                                    accept="image/*"
+                                    required
+                                >
+                            </div>
+
+                            <!-- Image Preview -->
+                            <div class="mb-4 text-center">
+                                <img
+                                    id="imagePreview"
+                                    src="https://placehold.co/800x350?text=Cover+Image+Preview"
+                                    class="img-fluid rounded shadow-sm preview-image"
+                                    alt="Preview"
+                                >
+                            </div>
+
+                            <!-- Title -->
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">
+                                    Blog Title
+                                </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="title"
+                                    name="title"
+                                    placeholder="Enter your blog title..."
+                                    maxlength="100"
+                                    required
+                                >
+                                <div class="form-text">
+                                    Give your blog a meaningful title.
+                                </div>
+                            </div>
+
+                            <!-- Body -->
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">
+                                    Blog Content
+                                </label>
+                                <textarea
+                                    name="body"
+                                    id="body"
+                                    class="form-control"
+                                    rows="12"
+                                    placeholder="Write your blog here..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-lg">
+                                    Publish Blog
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            name="title"
-            aria-describedby="title"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="body">Body</label>
-          <textarea name="body" class="form-control" id="body"></textarea>
-        </div>
-        <div class="mb-3">
-          <button class="btn btn-primary">Submit</button>
-        </div>
-      </form>
     </div>
+
     <%- include('./partials/scripts') %>
-  </body>
+
+    <script>
+
+        const coverImage = document.getElementById("coverImage");
+        const imagePreview = document.getElementById("imagePreview");
+
+        coverImage.addEventListener("change", function(){
+
+            const file = this.files[0];
+
+            if(file){
+
+                imagePreview.src = URL.createObjectURL(file);
+
+            }
+
+        });
+
+    </script>
+
+</body>
 </html>

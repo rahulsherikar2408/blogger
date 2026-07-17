@@ -19,29 +19,34 @@ router.get('/logout', (req, res) => {
 })
 
 // User Login Route
-router.post('/signin', async (req,res) => {
-    const {email, password} = req.body;
+router.post('/signin', async (req, res) => {
+    const { email, password } = req.body;
     try {
         const token = await User.matchPasswordAndGenerateToken(email, password);
-        return res.cookie("token", token).redirect("/");
+        return res
+            .cookie("token", token, {
+                maxAge: 24 * 60 * 60 * 1000, // 7 days
+                httpOnly: true,
+            })
+            .redirect("/");
 
     } catch (error) {
         return res.render('signin', {
             error: "Invalid Email or Password",
         });
     }
-    
+
 })
 
 // User Signup Route
-router.post('/signup', async(req, res) => {
-    const {fullName, email, password} = req.body;
+router.post('/signup', async (req, res) => {
+    const { fullName, email, password } = req.body;
     await User.create({
         fullName,
         email,
         password,
     });
-    return res.redirect('/');
+    return res.redirect('/user/signin');
 })
 
 export default router;
