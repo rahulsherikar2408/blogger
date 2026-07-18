@@ -6,8 +6,6 @@ A modern **full-stack blogging platform** built with **Node.js, Express.js, Mong
 
 ## 📸 Preview
 
-> Add screenshots here
-
 | Home Page | Blog Page |
 |-----------|-----------|
 | ![Home](screenshots/home.png) | ![Blog](screenshots/blog.png) |
@@ -107,7 +105,7 @@ Blogger/
 Clone the repository
 
 ```bash
-git clone https://github.com/your-username/blogger.git
+git clone https://github.com/rahulsherikar2408/blogger.git
 ```
 
 Go into the project
