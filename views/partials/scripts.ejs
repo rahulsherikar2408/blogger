@@ -12,6 +12,22 @@
     });
 </script>
 
+<!-- SCRIPT FOR SPINNER FOR PUBLISH BLOG -->
+
+<script>
+
+    const blogForm = document.getElementById("blogForm");
+    const publishBtn = document.getElementById("publishBtn");
+    const spinner = document.getElementById("spinner");
+    const btnText = document.getElementById("btnText");
+
+    blogForm.addEventListener("submit", () => {
+        publishBtn.disabled = true;
+        spinner.classList.remove("d-none");
+        btnText.textContent = "Publishing...";
+    });
+</script>
+
 <!-- SCRIPT FOR SIGNUP PAGE -->
 
 <script>

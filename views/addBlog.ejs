@@ -22,7 +22,7 @@
                         <p class="text-muted mb-4">
                             Share your thoughts with the world.
                         </p>
-                        <form action="/blog" method="POST" enctype="multipart/form-data">
+                        <form id="blogForm" action="/blog" method="POST" enctype="multipart/form-data">
 
                             <!-- Cover Image -->
                             <div class="mb-4">
@@ -85,8 +85,23 @@
 
                             <!-- Submit -->
                             <div class="d-grid">
-                                <button class="btn btn-primary btn-lg">
-                                    Publish Blog
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary btn-lg"
+                                    id="publishBtn"
+                                >
+
+                                    <span
+                                        id="spinner"
+                                        class="spinner-border spinner-border-sm me-2 d-none"
+                                        role="status"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    <span id="btnText">
+                                        Publish Blog
+                                    </span>
+
                                 </button>
                             </div>
                         </form>
