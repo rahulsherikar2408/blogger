@@ -25,7 +25,7 @@ router.post('/signin', async (req, res) => {
         const token = await User.matchPasswordAndGenerateToken(email, password);
         return res
             .cookie("token", token, {
-                maxAge: 24 * 60 * 60 * 1000, // 7 days
+                maxAge: 24 * 60 * 60 * 1000, // 1 days
                 httpOnly: true,
             })
             .redirect("/");
